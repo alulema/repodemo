@@ -4,6 +4,13 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0-bookworm-slim
 # 2. Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
+# --- MODIFICACIÓN LIGERA ---
+# Añadimos una variable de entorno para que .NET sepa que estamos en desarrollo
+ENV DOTNET_ENVIRONMENT=Development
+# Añadimos un metadato para saber quién es el autor
+LABEL maintainer="Alexis Alulema"
+# ---------------------------
+
 # 3. Copiar los archivos de tu proyecto (si los tienes)
 # Si solo quieres el contenedor para pruebas, puedes omitir este paso
 COPY . .
